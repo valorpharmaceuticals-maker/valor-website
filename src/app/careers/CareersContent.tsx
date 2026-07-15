@@ -5,29 +5,21 @@ import { Button, Col, Row, Tag, Typography } from "antd";
 import { EnvironmentOutlined, RightOutlined } from "@ant-design/icons";
 import Icon from "@/components/Icon";
 import { PageHero, SectionHead } from "@/components/sections";
-import { site } from "@/data/site";
+import type { SiteContent } from "@/data/site";
 
 const { Title, Paragraph } = Typography;
 
-const perks = [
-  { icon: "HeartOutlined", title: "Meaningful work", description: "Contribute to products that improve people's health and quality of life." },
-  { icon: "BulbOutlined", title: "Growth & learning", description: "Structured training and clear pathways to develop your career." },
-  { icon: "TeamOutlined", title: "Supportive culture", description: "A collaborative, respectful environment where people are valued." },
-  { icon: "SafetyCertificateOutlined", title: "Stability", description: "A trusted, established company with a long-term outlook." },
-];
+export default function CareersContent({ content }: { content: SiteContent }) {
+  const { perks, jobs, company } = content;
+  const page = content.pages.careers;
 
-export default function CareersContent() {
   return (
     <>
-      <PageHero
-        eyebrow="Careers"
-        title="Build your career with purpose"
-        lead="We are always looking for talented, driven people who want to make a real difference in healthcare."
-      />
+      <PageHero eyebrow={page.hero.eyebrow ?? ""} title={page.hero.title} lead={page.hero.lead} />
 
       <section className="section">
         <div className="container">
-          <SectionHead center eyebrow="Why join us" title="More than just a job" />
+          <SectionHead center eyebrow={page.whyJoin.eyebrow} title={page.whyJoin.title} />
           <Row gutter={[24, 24]} style={{ marginTop: 48 }}>
             {perks.map((p) => (
               <Col xs={24} sm={12} lg={6} key={p.title}>
@@ -36,9 +28,7 @@ export default function CareersContent() {
                     <Icon name={p.icon} />
                   </div>
                   <Title level={4} style={{ marginTop: 0 }}>{p.title}</Title>
-                  <Paragraph style={{ color: "var(--brand-muted)", marginBottom: 0 }}>
-                    {p.description}
-                  </Paragraph>
+                  <Paragraph style={{ color: "var(--brand-muted)", marginBottom: 0 }}>{p.description}</Paragraph>
                 </div>
               </Col>
             ))}
@@ -48,13 +38,9 @@ export default function CareersContent() {
 
       <section className="section section--soft">
         <div className="container">
-          <SectionHead
-            eyebrow="Open positions"
-            title="Current opportunities"
-            lead="These roles are placeholders and will be managed through the CMS."
-          />
+          <SectionHead eyebrow={page.openings.eyebrow} title={page.openings.title} lead={page.openings.lead} />
           <div style={{ marginTop: 40, display: "grid", gap: 16 }}>
-            {site.jobs.map((job) => (
+            {jobs.map((job) => (
               <div
                 key={job.title}
                 style={{
@@ -88,9 +74,9 @@ export default function CareersContent() {
           </div>
 
           <div style={{ marginTop: 40, textAlign: "center", color: "var(--brand-muted)" }}>
-            Don&apos;t see a suitable role? Send your CV to{" "}
-            <a href={`mailto:${site.company.email}`} style={{ color: "var(--brand-primary)", fontWeight: 600 }}>
-              {site.company.email}
+            {page.spontaneous.note}{" "}
+            <a href={`mailto:${company.email}`} style={{ color: "var(--brand-primary)", fontWeight: 600 }}>
+              {company.email}
             </a>
           </div>
         </div>

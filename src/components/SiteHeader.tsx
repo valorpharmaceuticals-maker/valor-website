@@ -5,9 +5,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button, Drawer } from "antd";
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
-import { site } from "@/data/site";
+import type { Company, NavItem } from "@/data/site";
 
-export default function SiteHeader() {
+export default function SiteHeader({
+  company,
+  logoUrl,
+  nav,
+}: {
+  company: Company;
+  logoUrl: string | null;
+  nav: NavItem[];
+}) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
@@ -17,16 +25,21 @@ export default function SiteHeader() {
   return (
     <header className="site-header">
       <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
-        <Link href="/" className="brand-lockup" aria-label={`${site.company.name} home`}>
-          <span className="brand-mark">{site.company.shortName.charAt(0)}</span>
+        <Link href="/" className="brand-lockup" aria-label={`${company.name} home`}>
+          {logoUrl ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={logoUrl} alt={company.name} style={{ height: 40, width: "auto" }} />
+          ) : (
+            <span className="brand-mark">{company.shortName.charAt(0)}</span>
+          )}
           <span>
-            {site.company.shortName}
+            {company.shortName}
             <span className="brand-sub">Pharmaceuticals</span>
           </span>
         </Link>
 
         <nav className="nav-desktop" aria-label="Primary">
-          {site.nav.map((item) => (
+          {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -58,14 +71,14 @@ export default function SiteHeader() {
         title={
           <span className="brand-lockup" style={{ fontSize: 18 }}>
             <span className="brand-mark" style={{ width: 32, height: 32, fontSize: 15 }}>
-              {site.company.shortName.charAt(0)}
+              {company.shortName.charAt(0)}
             </span>
-            {site.company.shortName}
+            {company.shortName}
           </span>
         }
       >
         <nav aria-label="Mobile" style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-          {site.nav.map((item) => (
+          {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}

@@ -2,9 +2,17 @@
 
 import Link from "next/link";
 import { EnvironmentOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons";
-import { site } from "@/data/site";
+import type { Company, NavItem } from "@/data/site";
 
-export default function SiteFooter() {
+export default function SiteFooter({
+  company,
+  nav,
+  footerAbout,
+}: {
+  company: Company;
+  nav: NavItem[];
+  footerAbout: string;
+}) {
   return (
     <footer className="site-footer">
       <div className="container">
@@ -14,24 +22,23 @@ export default function SiteFooter() {
         >
           <div>
             <Link href="/" className="brand-lockup" style={{ color: "#fff" }}>
-              <span className="brand-mark">{site.company.shortName.charAt(0)}</span>
+              <span className="brand-mark">{company.shortName.charAt(0)}</span>
               <span style={{ color: "#fff" }}>
-                {site.company.shortName}
+                {company.shortName}
                 <span className="brand-sub" style={{ color: "#8ea19d" }}>
                   Pharmaceuticals
                 </span>
               </span>
             </Link>
             <p style={{ marginTop: 16, maxWidth: 280, color: "#8ea19d", lineHeight: 1.7 }}>
-              {site.company.tagline}. Committed to quality medicine and healthier communities
-              since {site.company.established}.
+              {footerAbout}
             </p>
           </div>
 
           <div>
             <div className="footer-title">Company</div>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: 10 }}>
-              {site.nav
+              {nav
                 .filter((n) => n.href !== "/")
                 .map((n) => (
                   <li key={n.href}>
@@ -46,15 +53,15 @@ export default function SiteFooter() {
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: 12 }}>
               <li style={{ display: "flex", gap: 10 }}>
                 <EnvironmentOutlined style={{ marginTop: 4 }} />
-                <span>{site.company.address}</span>
+                <span>{company.address}</span>
               </li>
               <li style={{ display: "flex", gap: 10 }}>
                 <PhoneOutlined />
-                <a href={`tel:${site.company.phone}`}>{site.company.phone}</a>
+                <a href={`tel:${company.phone}`}>{company.phone}</a>
               </li>
               <li style={{ display: "flex", gap: 10 }}>
                 <MailOutlined />
-                <a href={`mailto:${site.company.email}`}>{site.company.email}</a>
+                <a href={`mailto:${company.email}`}>{company.email}</a>
               </li>
             </ul>
           </div>
@@ -62,7 +69,7 @@ export default function SiteFooter() {
           <div>
             <div className="footer-title">Follow</div>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: 10 }}>
-              {site.company.socials.map((s) => (
+              {company.socials.map((s) => (
                 <li key={s.label}>
                   <a href={s.href}>{s.label}</a>
                 </li>
@@ -73,9 +80,9 @@ export default function SiteFooter() {
 
         <div className="footer-bottom">
           <span>
-            © {new Date().getFullYear()} {site.company.name}. All rights reserved.
+            © {new Date().getFullYear()} {company.name}. All rights reserved.
           </span>
-          <span>Placeholder content — managed via the ERP Website CMS.</span>
+          <span>Managed via the ERP Website CMS.</span>
         </div>
       </div>
     </footer>
