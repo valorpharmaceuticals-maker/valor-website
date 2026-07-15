@@ -6,7 +6,9 @@ import { site as fallback, type SiteContent } from "@/data/site";
  * any field the API omits, returns null, or returns as an empty array falls
  * back to the placeholder in src/data/site.ts.
  *
- * Called from server components; results are ISR-cached for 60s.
+ * Called from server components. Uses `no-store` so CMS edits appear on the
+ * next page refresh (no ISR delay). The payload is small, so fetching per
+ * request is cheap.
  */
 export async function getSiteContent(): Promise<SiteContent> {
   const base = process.env.NEXT_PUBLIC_API_BASE_URL;
@@ -14,7 +16,7 @@ export async function getSiteContent(): Promise<SiteContent> {
 
   try {
     const res = await fetch(`${base.replace(/\/$/, "")}/public/site`, {
-      next: { revalidate: 60 },
+      cache: "no-store",
     });
     if (!res.ok) return fallback;
     const data = await res.json();
