@@ -1,11 +1,11 @@
 :root {
-  --brand-primary: #0f766e;
-  --brand-primary-dark: #0b5750;
-  --brand-accent: #c79a3a;
-  --brand-ink: #0f1c1a;
-  --brand-muted: #5b6b68;
-  --brand-bg-soft: #f4f7f6;
-  --brand-border: #e3e9e7;
+  --brand-primary: #1e63b4;
+  --brand-primary-dark: #123e77;
+  --brand-accent: #46b4e8;
+  --brand-ink: #0b2545;
+  --brand-muted: #5a6e88;
+  --brand-bg-soft: #eff5fc;
+  --brand-border: #dae4f1;
   --container: 1200px;
   --header-h: 76px;
 }
@@ -51,7 +51,7 @@ img {
 
 .section--ink {
   background: var(--brand-ink);
-  color: #eef2f1;
+  color: #e9f1fb;
 }
 
 .eyebrow {
@@ -84,7 +84,7 @@ img {
 }
 
 .section--ink .lead {
-  color: #b9c6c3;
+  color: #aec3de;
 }
 
 /* ---- Grid ---- */
@@ -127,7 +127,7 @@ img {
 
 .feature-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 18px 40px -24px rgba(15, 28, 26, 0.4);
+  box-shadow: 0 18px 40px -24px rgba(11, 37, 69, 0.4);
   border-color: transparent;
 }
 
@@ -139,7 +139,7 @@ img {
   border-radius: 12px;
   font-size: 24px;
   color: var(--brand-primary);
-  background: rgba(15, 118, 110, 0.1);
+  background: rgba(30, 99, 180, 0.1);
   margin-bottom: 18px;
 }
 
@@ -161,7 +161,7 @@ img {
 }
 
 .section--ink .stat-label {
-  color: #b9c6c3;
+  color: #aec3de;
 }
 
 /* ---- Carousel slide ---- */
@@ -187,9 +187,9 @@ img {
   inset: 0;
   background: linear-gradient(
     100deg,
-    rgba(11, 87, 80, 0.92) 0%,
-    rgba(15, 28, 26, 0.72) 55%,
-    rgba(15, 28, 26, 0.3) 100%
+    rgba(18, 62, 119, 0.92) 0%,
+    rgba(11, 37, 69, 0.72) 55%,
+    rgba(11, 37, 69, 0.3) 100%
   );
 }
 
@@ -291,18 +291,18 @@ img {
 .nav-link:hover,
 .nav-link.active {
   color: var(--brand-primary);
-  background: rgba(15, 118, 110, 0.08);
+  background: rgba(30, 99, 180, 0.08);
 }
 
 /* ---- Footer ---- */
 .site-footer {
   background: var(--brand-ink);
-  color: #c4d0cd;
+  color: #c4d3e6;
   padding-block: 64px 28px;
 }
 
 .site-footer a {
-  color: #c4d0cd;
+  color: #c4d3e6;
   text-decoration: none;
   transition: color 0.15s ease;
 }
@@ -327,7 +327,7 @@ img {
   gap: 12px;
   justify-content: space-between;
   font-size: 14px;
-  color: #8ea19d;
+  color: #8399b5;
 }
 
 /* ---- Misc ---- */
@@ -346,7 +346,7 @@ img {
 .media-frame {
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 30px 60px -30px rgba(15, 28, 26, 0.45);
+  box-shadow: 0 30px 60px -30px rgba(11, 37, 69, 0.45);
 }
 
 .media-frame img {
@@ -377,7 +377,7 @@ img {
   gap: 8px;
   padding: 6px 14px;
   border-radius: 999px;
-  background: rgba(15, 118, 110, 0.1);
+  background: rgba(30, 99, 180, 0.1);
   color: var(--brand-primary);
   font-size: 13px;
   font-weight: 600;

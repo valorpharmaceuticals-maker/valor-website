@@ -41,7 +41,7 @@ export default function ServicesContent({ content }: { content: SiteContent }) {
             {process.map((p) => (
               <Col xs={24} sm={12} lg={6} key={p.step}>
                 <div style={{ padding: "8px 4px" }}>
-                  <div style={{ fontSize: 40, fontWeight: 800, color: "rgba(15,118,110,0.25)", lineHeight: 1 }}>
+                  <div style={{ fontSize: 40, fontWeight: 800, color: "rgba(30,99,180,0.25)", lineHeight: 1 }}>
                     {p.step}
                   </div>
                   <Title level={4} style={{ marginTop: 12 }}>{p.title}</Title>

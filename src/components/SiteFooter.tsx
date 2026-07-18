@@ -25,12 +25,12 @@ export default function SiteFooter({
               <span className="brand-mark">{company.shortName.charAt(0)}</span>
               <span style={{ color: "#fff" }}>
                 {company.shortName}
-                <span className="brand-sub" style={{ color: "#8ea19d" }}>
+                <span className="brand-sub" style={{ color: "#8399b5" }}>
                   Pharmaceuticals
                 </span>
               </span>
             </Link>
-            <p style={{ marginTop: 16, maxWidth: 280, color: "#8ea19d", lineHeight: 1.7 }}>
+            <p style={{ marginTop: 16, maxWidth: 280, color: "#8399b5", lineHeight: 1.7 }}>
               {footerAbout}
             </p>
           </div>

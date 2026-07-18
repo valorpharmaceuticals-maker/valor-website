@@ -6,13 +6,13 @@ import type { ThemeConfig } from "antd";
  * re-skin the whole site. Kept intentionally minimal and professional.
  */
 export const BRAND = {
-  primary: "#0F766E", // deep medical teal — trust, health
-  primaryDark: "#0B5750",
-  accent: "#C79A3A", // muted gold accent for highlights
-  ink: "#0F1C1A", // near-black text
-  muted: "#5B6B68", // secondary text
-  bgSoft: "#F4F7F6", // soft section background
-  border: "#E3E9E7",
+  primary: "#1E63B4", // confident azure blue — trust, clarity
+  primaryDark: "#123E77", // deep navy-blue for gradients/hover
+  accent: "#46B4E8", // bright sky-blue accent for highlights
+  ink: "#0B2545", // deep navy text
+  muted: "#5A6E88", // slate-blue secondary text
+  bgSoft: "#EFF5FC", // soft sky-tinted section background
+  border: "#DAE4F1", // light blue-grey border
 } as const;
 
 export const themeConfig: ThemeConfig = {
